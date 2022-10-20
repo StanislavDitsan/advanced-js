@@ -4,7 +4,8 @@
  */
 
 
-//----------------- Arrow Function With Parameters
+//----------------- Arrow Function With Parameters ----------------- 
+//Allows us to write more concise JavaScript functions
 
 const addTwoNumbers = (a, b) => {
     //Code block
@@ -36,7 +37,9 @@ const returnMultipleLines = () => (
 
 console.log(returnMultipleLines())
 
-//----------------- The spread-operator
+//----------------- The spread-operator ----------------- 
+// Gives us more powerful ways of manipulating JavaScript arrays
+// By using the ... three dots operator in an array
 
 // No spread operator
 
@@ -64,7 +67,8 @@ console.log('Third object:', obj3)
 let arr5 = [...arr1, { ...obj1 }, ...arr3, 'x', 'y', 'z'];
 console.log(arr5)
 
-//-----------------  Rest-parameter-syntax
+//-----------------  Rest-parameter-syntax ----------------- 
+// Allows us to handle the contents of arrays of multiple lengths
 
 
 // Regular function call 
@@ -79,28 +83,28 @@ let sum4 = sumAll(1, 2, 3, 4, 5, 6);
 console.log("Sum4:", sum4);
 
 // Function using ...rest
-const sumRest = (a,b,c, ...rest) => {
-    let sum = a+b+c
-    for (let i of rest ){
+const sumRest = (a, b, c, ...rest) => {
+    let sum = a + b + c
+    for (let i of rest) {
         sum += i;
     }
 
     return sum;
 }
 
-let sum5 = sumRest(1,2,3,4,5,6);
+let sum5 = sumRest(1, 2, 3, 4, 5, 6);
 console.log("Sum5:", sum5)
 
 
-//------------------ Rest Parameter Challenge
+//------------------ Rest Parameter Challenge ----------------- 
 
 let mixedLetters = ['b', 'd', 'a', 'c', 'f', 'e'];
-let moreMixedLetters = [...mixedLetters,'h', 'k', 'g', 'j', 'i', 'l'];
+let moreMixedLetters = [...mixedLetters, 'h', 'k', 'g', 'j', 'i', 'l'];
 
 console.log(moreMixedLetters);
 
 const updateSortReverse = (arr, ...letters) => {
-    let newArray = [...arr,...letters].sort().reverse();
+    let newArray = [...arr, ...letters].sort().reverse();
     return newArray;
 };
 
@@ -110,13 +114,62 @@ console.log(reverseSort);
 console.log(mixedLetters);
 
 
-//-----------------  Destructuring
+//-----------------  Destructuring ----------------- 
+// Allows us to easily turn an array or object into multiple variables
 
 
 // Destructuring arrays
+let ages = [30, 26, 27];
+// let john = ages[0];
+// let mary = ages[1];
+// let joe = ages[2];
+
+let [john, mary, joe] = ages;
+console.log(john, mary, joe);
 
 // Destructuring objects
+let jobs = {
+    mike: "designer",
+    jill: "developer",
+    alica: "accountant",
+};
+
+let { mike, jill, alica } = jobs;
+console.log(mike, jill, alica);
 
 // Destructuring subsets
+let languages = ["english", "french", "spanish", "german", "ukrainian"];
+let [johnNative, johnSecondary] = languages;
+console.log(johnNative, johnSecondary);
+
+let [, , maryNative, marySecondary] = languages;
+console.log(maryNative, marySecondary);
+
+let language2 = {
+    firstLang: "spanish",
+    secondLang: "finish",
+    thirdLang: "german",
+    fourthLang: "ukrainian"
+};
+let { firstLang, fourthLang } = language2;
+console.log(firstLang, fourthLang);
 
 // Using rest parameter syntax
+let fruits = ["apple", "orange", "banana", "peach", "cherry", "watermelon"];
+let [favorite, secondFavorite, ...other] = fruits;
+console.log(favorite);
+console.log(secondFavorite);
+console.log(...other);
+
+//--------------------
+
+let favoriteFoods = {
+    brian: "pizza",
+    anna: "pasta",
+    sarah: "vegetarian",
+    andrea: "steak"
+};
+let { brian, anna, ...rest } = favoriteFoods;
+console.log(brian);
+console.log(anna);
+console.log(rest);
